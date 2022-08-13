@@ -6,7 +6,7 @@ Its a news website to register tshreen revolution actions and events
 
 you have to execute
 
-- composr install
+- composer install
 - php artisan ui vue
 - npm install
 - npm run build
