@@ -7,6 +7,7 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        <img src="@/images/yuffie_wallpaper_1280x1024.jpg" alt="" srcset="">
                     </div>
                 </div>
             </div>

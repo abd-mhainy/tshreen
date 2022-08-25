@@ -5,20 +5,23 @@
  */
 
 import './bootstrap';
+import '../css/app.css'; 
 import { createApp } from 'vue';
+
+// import.meta.glob([
+//     '../images/**',
+// ]);
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
  * to use in your application's views. An example is included for you.
  */
-import App from './App.vue';
 
-const app = createApp(App);
+
 
 import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
-
+const app = createApp(ExampleComponent);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
