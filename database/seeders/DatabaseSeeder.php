@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\City;
+use App\Models\News;
+use App\Models\NewsLang;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +19,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Category::factory()->create();
+        City::factory()->create();
+        User::factory()->create();
+        News::factory()->create();
+        NewsLang::factory()->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
