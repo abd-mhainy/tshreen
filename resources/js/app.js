@@ -6,11 +6,8 @@
 
 import './bootstrap';
 import '../css/app.css'; 
+import router from './router.js';
 import { createApp } from 'vue';
-
-// import.meta.glob([
-//     '../images/**',
-// ]);
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -19,9 +16,8 @@ import { createApp } from 'vue';
  */
 
 
-
-import ExampleComponent from './components/ExampleComponent.vue';
-const app = createApp(ExampleComponent);
+ import App from './App.vue';
+const app = createApp(App);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -39,5 +35,7 @@ const app = createApp(ExampleComponent);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
+
+app.use(router);
 
 app.mount('#app');
