@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home-page', [HomePageController::class, 'getHomePage'])->name('home-page');
+Route::get('{lang}/home-page', [HomePageController::class, 'getHomePage'])->name('home-page');
 
 Route::prefix('category')->group(function () {
     Route::get('{id}/get-category', [CategoryController::class, 'getById'])->name('get-category');

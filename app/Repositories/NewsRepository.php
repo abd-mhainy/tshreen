@@ -14,21 +14,17 @@ class NewsRepository
     {
     }
 
-    public function getAll(): Collection
+    public function getAll(string $lang): Collection
     {
-        return $this->getNewsQueryWithSelect()->get();
+        return $this->getNewsQueryWithSelect($lang)->get();
     }
 
     public function getAllByCategory(int $catId, string $lang): Collection
     {
-        return $this->getNewsQueryWithSelect()
+        return $this->getNewsQueryWithSelect($lang)
             ->whereHas('category', function (Builder $query) use ($catId) {
                 return $query->where('id', '=', $catId);
             })
-            ->whereHas('newsLang', function (Builder $query) use ($lang) {
-                return $query->where('lang', '=', $lang);
-            })
-            ->orderByDesc('id')
             ->get();
     }
 
@@ -59,8 +55,13 @@ class NewsRepository
         return $city->deleteOrFail();
     }
 
-    protected function getNewsQueryWithSelect(): Builder
+    protected function getNewsQueryWithSelect(string $lang): Builder
     {
-        return $this->news->with(['category:id,name', 'city:id,name', 'newsLang']);
+        return $this->news
+            ->with(['category:id,name', 'city:id,name', 'newsLang'])
+            ->whereHas('newsLang', function (Builder $query) use ($lang) {
+                return $query->where('lang', '=', $lang);
+            })
+            ->orderByDesc('id');
     }
 }

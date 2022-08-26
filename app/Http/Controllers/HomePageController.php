@@ -15,9 +15,9 @@ class HomePageController
     ){
     }
 
-    public function getHomePage()
+    public function getHomePage(string $lang)
     {
-        $news = collect($this->newsRepository->getAll());
+        $news = collect($this->newsRepository->getAll($lang));
         $sliderInfo = $news->take(10)->flatten();
 
         return response()->json([
