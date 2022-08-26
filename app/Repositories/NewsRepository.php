@@ -28,6 +28,7 @@ class NewsRepository
             ->whereHas('newsLang', function (Builder $query) use ($lang) {
                 return $query->where('lang', '=', $lang);
             })
+            ->orderByDesc('id')
             ->get();
     }
 

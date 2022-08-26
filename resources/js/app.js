@@ -5,7 +5,7 @@
  */
 
 import './bootstrap';
-import '../css/app.css'; 
+import '../css/app.css';
 import router from './router.js';
 import { createApp } from 'vue';
 
