@@ -20,13 +20,4 @@ class NewsController extends Controller
     {
         return $this->newsRepository->getAllByCategory($catId, $lang);
     }
-
-    public function getHomePage()
-    {
-        $news = $this->newsRepository->getAll();
-
-        return response()->json([
-            'slider' => $news->sortByDesc->take(10)->flatten(),
-        ]);
-    }
 }
