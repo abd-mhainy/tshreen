@@ -4,7 +4,8 @@
     @vite(['resources/js/app.js'])
     <script src="./theme-js/jquery.modernizr.js"></script>
     </head>
-    <body class="antialiased">
+    <body class="wide-layout">
+        <div class="loader"></div>
         <div id="app"></div>
         <script src="./theme-js/jquery-2.1.0.min.js"></script>
         <script src="./theme-js/jquery-ui.min.js"></script>
