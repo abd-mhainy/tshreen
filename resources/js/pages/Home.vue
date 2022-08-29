@@ -1,12 +1,12 @@
 <template>
     <TheSlider></TheSlider>
+    <div class="container" style="margin-top: 60px;">
+        <NewsGridLarge></NewsGridLarge>
+    </div>
     <div class="content">
         <TheNewsCarousel></TheNewsCarousel>
     </div>
-    <div class="container">
-        <NewsGridLarge></NewsGridLarge>
-    </div>
-    <div class="container" style="margin: 60px 0;">
+    <div class="container" style="margin: 60px auto;">
         <div class="row">
             <TheHomeMain></TheHomeMain>
             <TheHomeAside></TheHomeAside>

@@ -1,150 +1,52 @@
 <template>
     <aside id="sidebar" class="col-md-4 col-sm-12">
-        <div class="section" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
-            <h3 class="section_title">Meet Our Writers</h3>
-            <ul class="writers_list clearfix">
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_1.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Jessica Priston</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_2.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>John Franklin</h4>
-                            <div class="event_date">Contributing Editor</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_3.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Camala Haddon</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <ul class="writers_list clearfix">
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_1.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Jessica Priston</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_2.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>John Franklin</h4>
-                            <div class="event_date">Contributing Editor</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_3.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Camala Haddon</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="section" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
-            <h3 class="section_title">Meet Our Writers</h3>
-            <ul class="writers_list clearfix">
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_1.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Jessica Priston</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_2.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>John Franklin</h4>
-                            <div class="event_date">Contributing Editor</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_3.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Camala Haddon</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <ul class="writers_list clearfix">
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_1.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Jessica Priston</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_2.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>John Franklin</h4>
-                            <div class="event_date">Contributing Editor</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="images/writer_3.jpg" alt="">
-                        </div>
-                        <div class="post_text">
-                            <h4>Camala Haddon</h4>
-                            <div class="event_date">Writer</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <MartyrsSlider :config="martyrsConfig"></MartyrsSlider>
+        <MartyrsSlider :config="woundedConfig"></MartyrsSlider>
     </aside>
 </template>
+
+<script>
+import MartyrsSlider from './MartyrsSlider.vue';
+
+export default {
+    components: {
+        MartyrsSlider,
+    },
+
+    computed: {
+        martyrsConfig() {
+            return {
+                title: 'شهدائنا',
+                martyrs: [
+                    { name: 'شهيد 1', href: '#', img: 'images/writer_1.jpg', city: 'city 1' },
+                    { name: 'شهيد 2', href: '#', img: 'images/writer_1.jpg', city: 'city 2' },
+                    { name: 'شهيد 3', href: '#', img: 'images/writer_1.jpg', city: 'city 3' },
+                    { name: 'شهيد 4', href: '#', img: 'images/writer_1.jpg', city: 'city 4' },
+                    { name: 'شهيد 5', href: '#', img: 'images/writer_1.jpg', city: 'city 5' },
+                    { name: 'شهيد 6', href: '#', img: 'images/writer_1.jpg', city: 'city 6' },
+                ]
+            }
+        },
+        woundedConfig() {
+            return {
+                title: 'الجرحى',
+                martyrs: [
+                    { name: 'جريح 1', href: '#', img: 'images/writer_1.jpg', city: 'city 1' },
+                    { name: 'جريح 2', href: '#', img: 'images/writer_1.jpg', city: 'city 2' },
+                    { name: 'جريح 3', href: '#', img: 'images/writer_1.jpg', city: 'city 3' },
+                    { name: 'جريح 4', href: '#', img: 'images/writer_1.jpg', city: 'city 4' },
+                    { name: 'جريح 5', href: '#', img: 'images/writer_1.jpg', city: 'city 5' },
+                    { name: 'جريح 6', href: '#', img: 'images/writer_1.jpg', city: 'city 6' },
+                ]
+            }
+        }
+    }
+}
+</script>
+
+<style scoped lang="scss">
+#sidebar {
+    position: sticky;
+    top: 60px;
+}
+</style>
