@@ -2,6 +2,7 @@
     <div class="tabs variation_2 variation_4" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
         <div class="clearfix">
             <h3 class="section_title">Sport</h3>
+            <div class="clearfix tabs_conrainer"><a href="#">المزيد</a></div>
             <!-- Do not remove this part, for some reason it's breaking the page -->
             <div class="clearfix tabs_conrainer" style="display: none;">
                 <ul class="tabs_nav clearfix">

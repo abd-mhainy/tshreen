@@ -10,6 +10,7 @@
                 <div class="clearfix">
                     <h3 class="section_title">{{ grid.title }}</h3>
                     <!-- Do not remove this part, for some reason it's breaking the page -->
+                    <div class="clearfix tabs_conrainer"><a href="#">المزيد</a></div>
                     <div class="clearfix tabs_conrainer" style="display: none;">
                         <ul class="tabs_nav clearfix">
                             <li class=""><a href="#tab-1">All</a></li>

@@ -1,5 +1,5 @@
 <template>
-    <aside id="sidebar" class="col-md-4 col-sm-12">
+    <aside id="sidebar" class="col-md-4 col-sm-12" style="position: sticky; top: 40px;">
         <div class="section" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
             <h3 class="section_title">Meet Our Writers</h3>
             <ul class="writers_list clearfix">

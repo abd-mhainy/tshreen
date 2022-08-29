@@ -169,3 +169,11 @@ export default {
     components: { NavItem },
 };
 </script>
+
+<style>
+.menu_wrap:not(.sticky) > .container { width: 100%; margin: 0; }
+.menu_wrap:not(.sticky) .col-lg-2 { width: 25%; transform: translateX(-75px); }
+.menu_wrap:not(.sticky) .col-lg-10 { width: 75%; }
+.menu_wrap:not(.sticky) .col-lg-10 > .clearfix { height: 90px; padding: 30px;}
+.menu_wrap:not(.sticky) .search-holder { transform: translateX(30px); }
+</style>
