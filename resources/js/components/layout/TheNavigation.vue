@@ -107,9 +107,9 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-12">
                         <a href="index.html" class="logo">
-                            <img src="images/logo.png" alt="" /></a>
+                            <img src="images/logo.png" alt="" style="float: left;"/></a>
                     </div>
-                    <div class="col-lg-10 col-md-12">
+                    <div class="col-lg-10 col-md-12" style="transform: translateY(10px);">
                         <div class="clearfix">
                             <!--button for responsive menu-->
                             <button id="menu_button">Menu</button>
@@ -147,7 +147,7 @@
 </template>
 
 <script>
-import NavItem from './NavItem.vue';
+import NavItem from '../ui/NavItem.vue';
 
 export default {
     computed: {
@@ -156,7 +156,7 @@ export default {
                 { text: 'Home', href: '#' },
                 { text: 'Business', href: '#' },
                 { text: 'Sport', href: '#' },
-                { text: 'Health', href: '#' },
+                { text: 'Health', href: '/category/health' },
                 { text: 'Health1', href: '#' },
                 { text: 'Health2', href: '#' },
                 { text: 'Health3', href: '#' },

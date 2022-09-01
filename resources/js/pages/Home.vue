@@ -1,12 +1,12 @@
 <template>
-    <TheSlider></TheSlider>
-    <div class="content">
-        <TheNewsCarousel></TheNewsCarousel>
-    </div>
-    <div class="container">
+    <TheHomeSlider></TheHomeSlider>
+    <div class="container" style="margin-top: 60px;">
         <NewsGridLarge></NewsGridLarge>
     </div>
-    <div class="container" style="margin: 60px 0;">
+    <div class="content">
+        <TheHomeNewsCarousel></TheHomeNewsCarousel>
+    </div>
+    <div class="container" style="margin: 60px auto;">
         <div class="row">
             <TheHomeMain></TheHomeMain>
             <TheHomeAside></TheHomeAside>
@@ -15,16 +15,16 @@
 </template>
 
 <script>
-import TheNewsCarousel from '../components/TheNewsCarousel.vue';
-import TheSlider from '../components/TheSlider.vue';
-import TheHomeMain from '../components/TheHomeMain.vue';
-import TheHomeAside from '../components/TheHomeAside.vue';
-import NewsGridLarge from '../components/NewsGridLarge.vue';
+import TheHomeNewsCarousel from '../components/page/home/TheHomeNewsCarousel.vue';
+import TheHomeSlider from '../components/page/home/TheHomeSlider.vue';
+import TheHomeMain from '../components/page/home/TheHomeMain.vue';
+import TheHomeAside from '../components/page/home/TheHomeAside.vue';
+import NewsGridLarge from '../components/blocks/NewsGridLarge.vue';
 
 export default {
     components: {
-        TheNewsCarousel,
-        TheSlider,
+        TheHomeNewsCarousel,
+        TheHomeSlider,
         NewsGridLarge,
         TheHomeMain,
         TheHomeAside,

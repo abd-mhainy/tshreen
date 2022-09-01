@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import TheNavigation from './components/TheNavigation.vue';
-import TheFooter from './components/TheFooter.vue';
+import TheNavigation from './components/layout/TheNavigation.vue';
+import TheFooter from './components/layout/TheFooter.vue';
 
 export default {
     components: {

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import NewsItem from './NewsItem.vue';
+import NewsItem from '../ui/NewsItem.vue';
 export default {
     computed: {
         gridItems() {

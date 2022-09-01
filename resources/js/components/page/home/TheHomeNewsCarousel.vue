@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import NewsCarouselItem from './NewsCarouselItem.vue';
+import NewsCarouselItem from '../../ui/NewsCarouselItem.vue';
 export default {
     computed: {
         carouselItems() {
