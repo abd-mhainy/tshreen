@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SliderItems from './SliderItems.vue';
+import SliderItems from '../../ui/SliderItems.vue';
 export default {
     computed: {
         firstSlide() {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NewsGridSmall from './NewsGridSmall.vue';
+import NewsGridSmall from '../../blocks/NewsGridSmall.vue';
 export default {
     computed: {
         gridItems() {

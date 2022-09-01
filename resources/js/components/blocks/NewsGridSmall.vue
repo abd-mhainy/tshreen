@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import NewsItem from './NewsItem.vue';
+import NewsItem from '../ui/NewsItem.vue';
 
 
 export default {
@@ -46,9 +46,3 @@ export default {
     components: { NewsItem }
 }
 </script>
-
-<!-- <style scoped lang="scss">
-[id^=tab-] {
-    display: block !important;
-}
-</style> -->

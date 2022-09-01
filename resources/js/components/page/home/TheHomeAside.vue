@@ -1,16 +1,16 @@
 <template>
     <aside id="sidebar" class="col-md-4 col-sm-12">
-        <MartyrsSlider :config="martyrsConfig"></MartyrsSlider>
-        <MartyrsSlider :config="woundedConfig"></MartyrsSlider>
+        <SmallSlider :config="martyrsConfig"></SmallSlider>
+        <SmallSlider :config="woundedConfig"></SmallSlider>
     </aside>
 </template>
 
 <script>
-import MartyrsSlider from './MartyrsSlider.vue';
+import SmallSlider from '../../blocks/SmallSlider.vue';
 
 export default {
     components: {
-        MartyrsSlider,
+        SmallSlider,
     },
 
     computed: {

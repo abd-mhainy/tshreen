@@ -147,7 +147,7 @@
 </template>
 
 <script>
-import NavItem from './NavItem.vue';
+import NavItem from '../ui/NavItem.vue';
 
 export default {
     computed: {
@@ -156,7 +156,7 @@ export default {
                 { text: 'Home', href: '#' },
                 { text: 'Business', href: '#' },
                 { text: 'Sport', href: '#' },
-                { text: 'Health', href: '#' },
+                { text: 'Health', href: '/category/health' },
                 { text: 'Health1', href: '#' },
                 { text: 'Health2', href: '#' },
                 { text: 'Health3', href: '#' },
