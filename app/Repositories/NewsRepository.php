@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Models\News;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Throwable;
@@ -19,18 +21,21 @@ class NewsRepository
         return $this->getNewsQueryWithSelect($lang)->get();
     }
 
-    public function getAllByCategory(int $catId, string $lang): Collection
+    public function getAllByCategory(int $catId, string $lang): LengthAwarePaginator
     {
         return $this->getNewsQueryWithSelect($lang)
             ->whereHas('category', function (Builder $query) use ($catId) {
                 return $query->where('id', '=', $catId);
             })
-            ->get();
+            ->orderByDesc('created_at')
+            ->paginate(5);
     }
 
-    public function getById(int $catId): News
+    public function getById(int $newsId, string $lang = 'ar'): Model
     {
-        return $this->news->where('id', '=', $catId)->firstOrFail();
+        return $this->getNewsQueryWithSelect($lang)
+            ->where('id', '=', $newsId)
+            ->firstOrFail();
     }
 
     public function create(Request $request): bool

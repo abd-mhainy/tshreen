@@ -17,4 +17,9 @@ class City extends Eloquent
     {
         return $this->hasMany(News::class, 'cityId');
     }
+
+    public function victims(): HasMany
+    {
+        return $this->hasMany(Victims::class, 'cityId');
+    }
 }
