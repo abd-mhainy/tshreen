@@ -19,14 +19,14 @@ class News extends Eloquent
     protected function createdAt(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => Carbon::make($value)->format('M, d,Y H:i'),
+            get: fn ($value) => Carbon::make($value)->format('M, d Y H:i'),
         );
     }
 
     protected function updatedAt(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => Carbon::make($value)->format('M, d,Y H:i'),
+            get: fn ($value) => Carbon::make($value)->format('M, d Y H:i'),
         );
     }
 
