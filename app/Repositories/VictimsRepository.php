@@ -3,6 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Victims;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Throwable;
@@ -13,19 +16,40 @@ class VictimsRepository
     {
     }
 
-    public function getById(int $victimId): Victims
+    public function getById(int $victimId, string $lang): Model
     {
-        return $this->victims->where('id', '=', $victimId)->firstOrFail();
+        return $this->getVictimsQueryWithRelation($lang)
+            ->where('id', '=', $victimId)
+            ->firstOrFail();
     }
 
-    public function getMartyrs(): Collection
+    public function getPaginatedVictims(string $lang): LengthAwarePaginator
     {
-        return $this->victims->where('isMartyr', '=', 1)->orderByDesc('id')->get();
+        return $this->getVictimsQueryWithRelation($lang)->orderByDesc('id')->paginate(5);
     }
 
-    public function getInjured(): Collection
+    public function getMartyrs(string $lang, int $limit = null): Collection|LengthAwarePaginator
     {
-        return $this->victims->where('isMartyr', '=', 0)->orderByDesc('id')->get();
+        $query = $this->getVictimsQueryWithRelation($lang)
+            ->where('isMartyr', '=', 1);
+
+        if ($limit) {
+            return $query->orderByDesc('created_at')->paginate($limit);
+        }
+
+        return $query->orderByDesc('id')->get();
+    }
+
+    public function getInjured(string $lang, int $limit = null): Collection|LengthAwarePaginator
+    {
+        $query =$this->getVictimsQueryWithRelation($lang)
+            ->where('isMartyr', '=', 0);
+
+        if ($limit) {
+            return $query->orderByDesc('created_at')->paginate($limit);
+        }
+
+        return $query->orderByDesc('id')->get();
     }
 
     public function create(Request $request): bool
@@ -48,5 +72,14 @@ class VictimsRepository
         $victim = $this->getById($request->input('id'));
 
         return $victim->deleteOrFail();
+    }
+
+    protected function getVictimsQueryWithRelation(string $lang): Builder
+    {
+        return $this->victims
+        ->with(['city:id,name', 'victimsLang'])
+        ->whereHas('victimsLang', function (Builder $query) use ($lang) {
+            return $query->where('lang', '=', $lang);
+        });
     }
 }

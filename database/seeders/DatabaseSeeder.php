@@ -3,11 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Category;
-use App\Models\City;
-use App\Models\News;
-use App\Models\NewsLang;
-use App\Models\User;
+use App\Models\Victims;
+use App\Models\VictimsLang;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,11 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->create();
-        City::factory()->create();
-        User::factory()->create();
-        News::factory()->create();
-        NewsLang::factory()->create();
+//        News::factory(40)->create();
+
+//        Victims::factory(10)->martyr()->create();
+//        Victims::factory(10)->injured()->create();
+
+//        VictimsLang::factory()->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

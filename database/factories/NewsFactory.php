@@ -27,7 +27,7 @@ class NewsFactory extends Factory
     {
         return [
             'coverImage' => $this->faker->imageUrl(640,480),
-            'catId' => 1,
+            'catId' => $this->faker->numberBetween(1, 7),
             'cityId' => 1,
             'userId' => 1,
         ];
