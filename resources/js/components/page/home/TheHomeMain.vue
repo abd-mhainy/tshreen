@@ -5,74 +5,51 @@
 </template>
 
 <script>
-import NewsGridSmall from '../../blocks/NewsGridSmall.vue';
+import NewsGridSmall from "../../blocks/NewsGridSmall.vue";
 export default {
+    props: {
+        config: Array,
+    },
+
     computed: {
         gridItems() {
-            return [
-                {
-                    variation: "variation_4",
-                    title: "Title 1",
-                    index: 1,
-                    columns: [
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 1" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 2" },
-                        ],
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 3" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 4" },
-                        ],
-                    ]
-                },
-                {
-                    variation: "",
-                    title: "Title 2",
-                    index: 2,
-                    columns: [
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 5" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 6" },
-                        ],
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 7" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 8" },
-                        ],
-                    ]
-                },
-                {
-                    variation: "variation_5",
-                    title: "Title 3",
-                    index: 3,
-                    columns: [
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 9" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 10" },
-                        ],
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 11" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 12" },
-                        ],
-                    ]
-                },
-                {
-                    variation: "variation_6",
-                    title: "Title 4",
-                    index: 4,
-                    columns: [
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 13" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 14" },
-                        ],
-                        [
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 15" },
-                            { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 16" },
-                        ],
-                    ]
-                },
-            ];
-        }
+            const gridItems = [];
+
+            this.$props.config.forEach((categoryName, index) => {
+                gridItems.push({
+                    variation: `variation_${index + 2}`,
+                    title: categoryName[0].category.name,
+                    index,
+                    columns: [],
+                });
+
+                categoryName.forEach((post) => {
+                    const {
+                        coverImage: img,
+                        created_at: date,
+                        catId,
+                        news_lang,
+                        id,
+                    } = post;
+                    const title = news_lang[0].title;
+
+                    gridItems[index].columns.push({
+                        img,
+                        date,
+                        catId,
+                        tag: 'sport',
+                        caption: title,
+                        href: `post/${catId}/${id}/${title.replaceAll(
+                            ' ',
+                            '-'
+                        )}`,
+                    });
+                });
+            });
+
+            return gridItems;
+        },
     },
-    components: { NewsGridSmall }
-}
+    components: { NewsGridSmall },
+};
 </script>

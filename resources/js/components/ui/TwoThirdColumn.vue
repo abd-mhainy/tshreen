@@ -15,3 +15,9 @@ export default {
     components: { SliderItemContent }
 }
 </script>
+
+<style scoped lang="scss">
+    .two_third_column:deep() img {
+        aspect-ratio: 1.44;
+    }
+</style>

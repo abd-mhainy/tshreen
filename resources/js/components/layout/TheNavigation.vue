@@ -156,7 +156,7 @@ export default {
                 { text: 'Home', href: '#' },
                 { text: 'Business', href: '#' },
                 { text: 'Sport', href: '#' },
-                { text: 'Health', href: '/category/health' },
+                { text: 'Health', href: '/category/1/آخر-الأخبار' },
                 { text: 'Health1', href: '#' },
                 { text: 'Health2', href: '#' },
                 { text: 'Health3', href: '#' },

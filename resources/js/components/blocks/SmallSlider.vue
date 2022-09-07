@@ -1,5 +1,5 @@
 <template>
-    <div class="section" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
+    <div class="section" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
         <h3 class="section_title">{{  config.title  }}</h3>
         <ul class="writers_list clearfix" ref="owlContainer">
             <li v-for="martyr in config.martyrs" :key="martyr.name">

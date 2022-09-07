@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="widget widget_gallery" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
+            <div class="widget widget_gallery" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
               <!--Gallery-->
               <div class="photo_gallery side_bar">
                 <h3 class="section_title">Photo & Video</h3>
@@ -114,7 +114,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="widget widget_text" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
+            <div class="widget widget_text" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
               <h3 class="widget_title">About</h3>
               <p>
                 Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna, endrerit sit amet,
@@ -127,7 +127,7 @@
               </p>
             </div>
             <div class="widget widget_social_icons clearfix" data-appear-animation="fadeInDown"
-              data-appear-animation-delay="1150">
+              data-appear-animation-delay="200">
               <h3 class="widget_title">Stay Connected</h3>
               <ul>
                 <li class="facebook">
@@ -200,7 +200,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="widget widget_writers" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
+            <div class="widget widget_writers" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
               <h3 class="widget_title">Meat Our Writers</h3>
               <ul class="writers_list clearfix">
                 <li>
@@ -238,7 +238,7 @@
                 </li>
               </ul>
             </div>
-            <div class="t_align_c" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
+            <div class="t_align_c" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
               <a href="#">
                 <img src="images/320x100.jpg" height="100" width="320" alt=""></a>
             </div>

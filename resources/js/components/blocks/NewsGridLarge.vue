@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs variation_2 variation_4" data-appear-animation="fadeInDown" data-appear-animation-delay="1150">
+    <div class="tabs variation_2 variation_4" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
         <div class="clearfix">
             <h3 class="section_title">Sport</h3>
             <!-- Do not remove this part, for some reason it's breaking the page -->
@@ -30,25 +30,35 @@
 <script>
 import NewsItem from '../ui/NewsItem.vue';
 export default {
+    props: {
+        config: Object,
+    },
     computed: {
         gridItems() {
-            return [
-                [
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 1" },
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 2" },
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 3" },
-                ],
-                [
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 4" },
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 5" },
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 6" },
-                ],
-                [
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 7" },
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 8" },
-                    { img: "images/flex_small_img1.jpg", href: "#", date: "July 13 2020", caption: "Lorem Ipsum 9" },
-                ],
-            ];
+            const gridData = [];
+            this.$props.config.forEach(grid => {
+                const {
+                    category: { name: tagText },
+                    coverImage: img,
+                    created_at: date,
+                    catId,
+                    news_lang,
+                    id,
+                } = grid;
+                const title = news_lang[0].title;
+
+                gridData.push({
+                    tagText,
+                    img,
+                    date,
+                    catId,
+                    tag: 'sport',
+                    caption: title,
+                    href: `post/${catId}/${id}/${title.replaceAll(' ', '-')}`,
+                });
+            });
+
+            return [gridData.slice(0, 3), gridData.slice(3, 6), gridData.slice(6, 9)];
         }
     },
     components: { NewsItem }
