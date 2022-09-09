@@ -1,7 +1,7 @@
 <template>
     <div class="section_8">
         <div class="news_gallery news_gallery_var2" data-appear-animation="fadeInDown"
-            data-appear-animation-delay="1150">
+            data-appear-animation-delay="200">
             <div class="container">
                 <h3 class="section_title">Featured</h3>
                 <div id="owl-demo-5">
@@ -31,6 +31,28 @@ export default {
             ];
         }
     },
-    components: { NewsCarouselItem }
+    components: { NewsCarouselItem },
+    mounted() {
+        $("#owl-demo-5").owlCarousel({
+            items: 5,
+            navSpeed: 800,
+            nav: true,
+            navText: false,
+            loop: true,
+            autoplay: true,
+            autoplaySpeed: 800,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                481: {
+                    items: 3
+                },
+                992: {
+                    items: 5
+                }
+            }
+        });
+    }
 }
 </script>

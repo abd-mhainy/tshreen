@@ -238,27 +238,6 @@
 
 		// Gallery carousel-4
 
-		$("#owl-demo-5").owlCarousel({
-	      items : 5,
-	      navSpeed: 800,
-	      nav : true,
-	      navText:false,
-	      loop:true,
-	      autoplay: true,
-	      autoplaySpeed: 800,
-	        responsive:{
-		        0:{
-		            items:1
-		        },
-		        481:{
-		            items:3
-		        },
-		        992:{
-		            items:5
-		        }
-		    }
-	  	});
-
 		// Gallery carousel-5
 
 		$("#owl-demo-6").owlCarousel({
@@ -302,14 +281,6 @@
 		});
 
 		// Gallery carousel-7
-
-		$("#owl-demo-9").owlCarousel({
-	      items : 1,
-	      navSpeed : 800,
-	      nav: true,
-	      navText: false,
-	      loop: true
-	 	});
 
 	 	// Gallery carousel-8
 

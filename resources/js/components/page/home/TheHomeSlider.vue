@@ -11,96 +11,54 @@
 <script>
 import SliderItems from '../../ui/SliderItems.vue';
 export default {
-    computed: {
-        firstSlide() {
-            return [
-                {
-                    href: "#",
-                    img: "images/banner_1-1.jpg",
-                    tag: "sport",
-                    tagText: "Sport",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Winter is Coming: Top Ski Resorts For Family",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_3-1_small.jpg",
-                    tag: "business",
-                    tagText: "Business",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Buisnes stuff 1",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_4-1_small.jpg",
-                    tag: "health",
-                    tagText: "Health",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Health stuff 1",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_5-1_small.jpg",
-                    tag: "sport",
-                    tagText: "Sport",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Sport stuff 1",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_6-1_small.jpg",
-                    tag: "sport",
-                    tagText: "Sport",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Sport stuff 2",
-                },
-            ];
-        },
-        secondSlide() {
-            return [
-                {
-                    href: "#",
-                    img: "images/banner_1-1.jpg",
-                    tag: "health",
-                    tagText: "Health",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "BIG HEALTH ",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_3-1_small.jpg",
-                    tag: "business",
-                    tagText: "Business",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Buisnes stuff 2",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_4-1_small.jpg",
-                    tag: "health",
-                    tagText: "Health",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Health stuff 2",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_5-1_small.jpg",
-                    tag: "sport",
-                    tagText: "Sport",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Sport stuff 3",
-                },
-                {
-                    href: "#",
-                    img: "images/banner_6-1_small.jpg",
-                    tag: "sport",
-                    tagText: "Sport",
-                    date: "July 01, 2014 5:50 am",
-                    caption: "Sport stuff 4",
-                },
-            ];
+    props: {
+        config: Object,
+    },
+    methods: {
+        getSliderData(slideIndex) {
+            const sliderData = [];
+            this.$props.config[slideIndex].forEach(slide => {
+                const {
+                    category: { name: tagText },
+                    coverImage: img,
+                    created_at: date,
+                    catId,
+                    news_lang,
+                    id,
+                } = slide;
+                const title = news_lang[0].title;
+
+                sliderData.push({
+                    tagText,
+                    img,
+                    date,
+                    catId,
+                    tag: 'sport',
+                    caption: title,
+                    href: `post/${catId}/${id}/${title.replaceAll(' ', '-')}`,
+                });
+            });
+
+            return sliderData;
         }
     },
-    components: { SliderItems }
+    computed: {
+        firstSlide() {
+            return this.getSliderData('first');
+        },
+        secondSlide() {
+            return this.getSliderData('second');
+        }
+    },
+    components: { SliderItems },
+    mounted() {
+        $("#owl-demo-9").owlCarousel({
+            items: 1,
+            navSpeed: 800,
+            nav: true,
+            navText: false,
+            loop: true
+        });
+    }
 }
 </script>

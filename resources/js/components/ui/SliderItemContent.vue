@@ -1,19 +1,19 @@
 <template>
-                <a :to="item.href"><img :src="item.img" alt="" class="scale_image" /></a>
+                <router-link :to="item.href"><img :src="item.img" alt="" class="scale_image" /></router-link>
                 <!--caption-->
                 <div class="caption_type_1">
                     <div class="caption_inner">
                         <div class="clearfix">
-                            <a href="#" class="button banner_button" :class="[item.tag]">{{ item.tagText }}</a>
+                            <router-link to="/" class="button banner_button" :class="[item.tag]">{{ item.tagText }}</router-link>
                             <div class="event_date">
                                 {{ item.date }}
                             </div>
                         </div>
-                        <a :to="item.href">
+                        <router-link :to="item.href">
                             <h3>
                                 {{ item.caption }}
                             </h3>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
 </template>

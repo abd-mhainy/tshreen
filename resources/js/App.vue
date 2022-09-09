@@ -13,7 +13,14 @@ import TheFooter from './components/layout/TheFooter.vue';
 export default {
     components: {
         TheNavigation,
-        TheFooter
+        TheFooter,
     },
 };
 </script>
+
+<style>
+#sidebar {
+    position: sticky;
+    top: 60px;
+}
+</style>

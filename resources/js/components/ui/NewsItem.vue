@@ -23,3 +23,15 @@ export default {
     }
 }
 </script>
+
+<style scoped lang="scss">
+.scale_image_container {
+    width: 165px;
+    height: 110px;
+
+    img {
+        aspect-ratio: 1.5;
+        height: 100%;
+    }
+}
+</style>
