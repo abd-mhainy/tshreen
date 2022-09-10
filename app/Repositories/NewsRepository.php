@@ -63,7 +63,7 @@ class NewsRepository
     protected function getNewsQueryWithSelect(string $lang): Builder
     {
         return $this->news
-            ->with(['category:id,name', 'city:id,name', 'newsLang'])
+            ->with(['category:id,name', 'city:id,name', 'newsLang', 'publisher:id,name,image'])
             ->whereHas('newsLang', function (Builder $query) use ($lang) {
                 return $query->where('lang', '=', $lang);
             })

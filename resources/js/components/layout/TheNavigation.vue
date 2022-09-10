@@ -153,16 +153,17 @@ export default {
     computed: {
         navItems() {
             return [
-                { text: 'Home', href: '#' },
-                { text: 'Business', href: '#' },
-                { text: 'Sport', href: '#' },
-                { text: 'Health', href: '/category/1/آخر-الأخبار' },
-                { text: 'Health1', href: '#' },
-                { text: 'Health2', href: '#' },
-                { text: 'Health3', href: '#' },
-                { text: 'Health4', href: '#' },
-                { text: 'Health5', href: '#' },
-                { text: 'Health6', href: "#" },
+                { text: 'الرئيسية', href: '/' },
+                { text: 'الأخبار', href: '/category/1/الأخبار' },
+                { text: 'الإدعاء العام', href: '/category/2/الإدعاء-العام' },
+                { text: 'طك بطق', href: '#' },
+                { text: 'رياضة', href: '/category/3/رياضة' },
+                { text: 'هموم', href: '/category/4/هموم' },
+                { text: 'علوم و تكنولوجيا', href: '/category/5/علوم-و-تكنولوجبا' },
+                { text: 'أدب', href: '/category/6/أدب' },
+                { text: 'أبحاث و مقالات', href: '/category/7/أبحاث-و-مقالات' },
+                { text: 'شهداء وجرحى', href: '#' },
+                { text: 'البث المباشر', href: '#' },
             ];
         },
     },

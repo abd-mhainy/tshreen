@@ -21,7 +21,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('category/{id}/{name}', function () {
+    return view('welcome');
+});
+
+Route::get('post/{id}/{name}', function () {
+    return view('welcome');
+});
+
 Route::get('{lang}/home-page', [HomePageController::class, 'getHomePage'])->name('home-page');
+Route::get('{lang}/footer', [HomePageController::class, 'getFooterData'])->name('footer-data');
 
 Route::prefix('category')->group(function () {
     Route::get('{id}/get-category', [CategoryController::class, 'getById'])->name('get-category');
