@@ -31,6 +31,7 @@ Route::get('post/{id}/{name}', function () {
 
 Route::get('{lang}/home-page', [HomePageController::class, 'getHomePage'])->name('home-page');
 Route::get('{lang}/footer', [HomePageController::class, 'getFooterData'])->name('footer-data');
+Route::get('{lang}/side-bar', [HomePageController::class, 'getSideBarData'])->name('side-bar-data');
 
 Route::prefix('category')->group(function () {
     Route::get('{id}/get-category', [CategoryController::class, 'getById'])->name('get-category');

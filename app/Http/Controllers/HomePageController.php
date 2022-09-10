@@ -51,6 +51,12 @@ class HomePageController
                 $news->where('category.id', '=', 6)->take(1)->flatten(),
                 $news->where('category.id', '=', 7)->take(1)->flatten(),
             ])->flatten(),
+        ]);
+    }
+
+    public function getSideBarData(string $lang): JsonResponse
+    {
+        return response()->json([
             'martyrs' => $this->victimsRepository->getMartyrs($lang)->take(9)->flatten(),
             'injured' => $this->victimsRepository->getInjured($lang)->take(9)->flatten(),
         ]);
