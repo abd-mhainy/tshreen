@@ -1,0 +1,24 @@
+.variation_2 {
+    border-top: none;
+
+    & > .clearfix {
+        border-bottom: 3px black solid;
+        padding-bottom: 7px;
+        position: relative;
+
+        &::before {
+            content: '';
+            height: 3px;
+            width: 40px;
+            background-color: #e53935;
+            display: block;
+            position: absolute;
+            bottom: -3px;
+        }
+    }
+
+    .section_title a {
+        color: black;
+        margin: 0;
+    }
+}

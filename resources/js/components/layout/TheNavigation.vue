@@ -106,8 +106,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-2 col-md-12">
-                        <a href="index.html" class="logo">
-                            <img src="images/logo.png" alt="" style="float: left;"/></a>
+                        <router-link to="/" class="logo">
+                            <img src="/images/logo.png" alt="" style="float: left;"/></router-link>
                     </div>
                     <div class="col-lg-10 col-md-12" style="transform: translateY(10px);">
                         <div class="clearfix">
@@ -156,14 +156,14 @@ export default {
                 { text: 'الرئيسية', href: '/' },
                 { text: 'الأخبار', href: '/category/1/الأخبار' },
                 { text: 'الإدعاء العام', href: '/category/2/الإدعاء-العام' },
-                { text: 'طك بطق', href: '#' },
+                { text: 'طك بطك', href: '#' },
                 { text: 'رياضة', href: '/category/3/رياضة' },
                 { text: 'هموم', href: '/category/4/هموم' },
-                { text: 'علوم و تكنولوجيا', href: '/category/5/علوم-و-تكنولوجبا' },
+                { text: 'علوم وتكنولوجيا', href: '/category/5/علوم-وتكنولوجيا' },
                 { text: 'أدب', href: '/category/6/أدب' },
-                { text: 'أبحاث و مقالات', href: '/category/7/أبحاث-و-مقالات' },
+                { text: 'مقالات وأبحاث', href: '/category/7/مقالات-وأبحاث' },
                 { text: 'شهداء وجرحى', href: '#' },
-                { text: 'البث المباشر', href: '#' },
+                { text: 'البث المباشر', href: 'http://ditve-live.ercdn.net/teshreentv/teshreentv.m3u8' },
             ];
         },
     },

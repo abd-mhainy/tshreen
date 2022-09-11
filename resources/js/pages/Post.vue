@@ -4,7 +4,12 @@
         <div class="breadcrumb">
             <div class="container">
                 <div>
-                    <span><a href="#">Home</a></span> / <span><a href="#">Blog</a></span> / {{ postTitle.replaceAll('-', ' ') }}
+                    <span>
+                        <router-link to="/">الرئيسية</router-link>
+                    </span> /
+                    <span>
+                        <router-link :to="categoryData.href"> {{ categoryData.name }} </router-link>
+                    </span> / {{ postTitle.replaceAll('-', ' ') }}
                 </div>
             </div>
         </div>
@@ -15,7 +20,7 @@
                     <div class="col-lg-8 col-md-8 col-sm-12">
                         <div class="section">
                             <PostContent :config="responseData"></PostContent>
-                            <PostAuthor></PostAuthor>
+                            <PostAuthor :config="responseData"></PostAuthor>
                         </div>
                     </div>
                     <div id="sidebar" class="col-lg-4 col-md-4 col-sm-12">
@@ -54,5 +59,13 @@ export default {
         this.isLoading = false;
         this.responseData = postData.data;
     },
+
+     computed: {
+        categoryData() {
+            const { category: { id, name } } = this.responseData;
+
+            return { href: `/category/${id}/${name.replaceAll(' ', '-')}`, name };
+        }
+     },
 }
 </script>

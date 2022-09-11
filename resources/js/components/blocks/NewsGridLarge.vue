@@ -1,8 +1,7 @@
 <template>
-    <div class="tabs variation_2 variation_4" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
+    <div class="tabs variation_2" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
         <div class="clearfix">
-            <h3 class="section_title">Sport</h3>
-            <!-- Do not remove this part, for some reason it's breaking the page -->
+            <h3 class="section_title"><router-link to="/category/1/الأخبار">الأخبار</router-link></h3>
             <div class="clearfix tabs_conrainer" style="display: none;">
                 <ul class="tabs_nav clearfix">
                     <li class=""><a href="#tab-1">All</a></li>
@@ -54,7 +53,7 @@ export default {
                     catId,
                     tag: 'sport',
                     caption: title,
-                    href: `post/${catId}/${id}/${title.replaceAll(' ', '-')}`,
+                    href: `post/${id}/${title.replaceAll(' ', '-')}`,
                 });
             });
 
@@ -64,3 +63,7 @@ export default {
     components: { NewsItem }
 }
 </script>
+
+<style scoped lang="scss">
+@import 'resources/sass/gridTitle';
+</style>

@@ -5,7 +5,7 @@
                 <router-link :to="post.href"><img :src="post.img" alt="" class="scale_image"></router-link>
                 <div class="post_image_buttons">
                     <div class="buttons_container">
-                        <router-link :to="post.categoryHref" class="button banner_button travel">{{ post.tagText }}</router-link>
+                        <router-link :to="post.categoryHref" :data-category="post.tagText" class="button banner_button">{{ post.tagText }}</router-link>
                     </div>
                 </div>
             </div>
@@ -33,16 +33,16 @@ export default {
         posts() {
             const posts = [];
 
-            console.log(this.$props)
             this.$props.items.forEach(post => {
                 const {
+                    id,
                     catId,
                     category: { name: tagText },
                     coverImage: img,
                     createdAt: date,
                     news_lang,
                 } = post;
-                const { body, title: caption, id } = news_lang[0];
+                const { body, title: caption } = news_lang[0];
                 const postData = {
                     tagText,
                     img,

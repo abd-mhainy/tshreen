@@ -18,18 +18,13 @@
             <div class="section read_post_list var2">
               <h2 class="section_title section_title_big">{{ categoryName.replaceAll('-', ' ') }}</h2>
               <ul>
-                <TheCategoriesRows :items="responseData.data"></TheCategoriesRows>
+                  <TheSpinner v-if="isRenderingCategories"></TheSpinner>
+                  <TheCategoriesRows :items="responseData.data" v-else></TheCategoriesRows>
               </ul>
             </div>
-            <div class="pagination_block">
-              <span>Page 1 of 4</span>
-              <ul class="pagination clearfix">
-                <li><a href="#" class="active">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-              </ul>
-            </div>
+            <keep-alive>
+                <ThePagination :page-count="responseData.last_page" @page-changed="pageNumber => fetchData(pageNumber)"></ThePagination>
+            </keep-alive>
           </div>
           <div id="sidebar" class="col-lg-4 col-md-4 col-sm-12" style="margin-top: 60px;">
             <TheAside></TheAside>
@@ -44,6 +39,7 @@
 import TheCategoriesRows from '../components/page/category/TheCategoriesRows.vue';
 import TheSpinner from '../components/layout/TheSpinner.vue';
 import TheAside from '../components/layout/TheAside.vue';
+import ThePagination from "../components/page/category/ThePagination.vue";
 
 export default {
   props: {
@@ -54,17 +50,39 @@ export default {
   data() {
         return {
             isLoading: true,
+            isRenderingCategories: false,
             responseData: {},
         }
     },
 
-    async beforeMount() {
-        const categoryData = await window.axios.get(`/news/${this.categoryId}/ar/get-all-news-by-category`);
-
-        this.isLoading = false;
-        this.responseData = categoryData.data;
+    created() {
+        this.$watch(
+            () => this.$route.params.categoryId,
+            async () => {
+                await this.fetchData()
+            },
+            { immediate: true }
+        )
     },
 
-  components: { TheCategoriesRows, TheSpinner, TheAside }
+    methods: {
+      async fetchData(pageNumber) {
+          if (pageNumber) {
+              this.isRenderingCategories = true;
+          } else {
+              this.isLoading = true;
+          }
+
+          const categoryData = await window.axios.get(
+              `/news/${this.$route.params.categoryId}/ar/get-all-news-by-category?page=${pageNumber}`
+          );
+
+          this.isLoading = false;
+          this.isRenderingCategories = false;
+          this.responseData = categoryData.data;
+      },
+    },
+
+  components: {ThePagination, TheCategoriesRows, TheSpinner, TheAside },
 }
 </script>

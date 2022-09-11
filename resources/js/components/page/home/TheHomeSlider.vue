@@ -35,7 +35,8 @@ export default {
                     catId,
                     tag: 'sport',
                     caption: title,
-                    href: `post/${catId}/${id}/${title.replaceAll(' ', '-')}`,
+                    href: `post/${id}/${title.replaceAll(' ', '-')}`,
+                    tagHref: `category/${catId}/${tagText.replaceAll(' ', '-')}`
                 });
             });
 
