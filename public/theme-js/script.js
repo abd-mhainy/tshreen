@@ -19,11 +19,11 @@
 					}
 				});
 			});
-			
+
 		}
 
 		// remove products from shopping cart
-		
+
 		$('[role="banner"]').on('click','.close_product',function(){
 			$(this).closest('li').animate({'opacity':'0'},function(){
 				$(this).slideUp(500);
@@ -114,7 +114,7 @@
 					}
 
 				}
-				
+
 			}
 
 			rMenu.init();
@@ -184,7 +184,7 @@
 				follow.attr('href','https://twitter.com/'+config.username);
 			}
 
-			// twitter  
+			// twitter
 
 		    jQuery('#twitter').tweet({
 		        username : 'fanfbmltemplate',
@@ -210,23 +210,6 @@
 	  	});
 
 		// Gallery carousel
-
-		window.footer_slider = function(){
-
-			$(".owl-demo-2").owlCarousel({
-			  items : 1,
-		      navigation : true, // Show next and prev buttons
-		      nav : true,
-		      loop:true,
-		      navSpeed: 800,
-		      navText:false
-		  	});
-
-		}
-
-		footer_slider();
-
-		// Gallery carousel-2
 
 		$("#owl-demo-3").owlCarousel({
 	      nav : true,
@@ -321,7 +304,7 @@
 					}
 				});
 			});
-			
+
 		}
 
 		// tabs
@@ -352,7 +335,7 @@
 
 	      subscribe.on('submit',function(e){
 	        var self = $(this);
-	        
+
 	        if(self.find('input[type="email"]').val() == ''){
 	          text = "Please enter your e-mail!";
 	          message.html('<div class="alert_box warning"><p>'+text+'</p></div>')
@@ -367,7 +350,7 @@
 	          $.ajax({
 	            type: "POST",
 	            url: "bat/newsletter.php",
-	            data: self.serialize(), 
+	            data: self.serialize(),
 	            success: function(data){
 	              if(data == '1'){
 	                text = "Your email has been sent successfully!";
@@ -425,7 +408,7 @@
       	});
 
 	    // flexslider
-			
+
 		if($("#flexslider").length){
 			$("#flexslider").flexslider({
 				controlNav:false,
@@ -463,7 +446,7 @@
 			}
 
 		});
-    
+
 		// Sticky and Go-top
 
 		(function ($, window) {
@@ -587,7 +570,7 @@
 			var list = $(this).children('ul'),
 				select = $(this).find('select'),
 				title = $(this).find('.select_title');
-		 
+
 
 			// select items to list items
 
@@ -604,7 +587,7 @@
 			select.hide();
 
 			// open list
-			
+
 			title.on('click',function(){
 				list.slideToggle(400);
 				$(this).toggleClass('active');
@@ -653,7 +636,7 @@
 				triggerAccordeon($(this))
 			});
 		}
-			
+
 
 		tLink.on('click',function(){
 			$(this).toggleClass('active')
@@ -726,7 +709,7 @@
 		if($(".jackbox[data-group]").length){
 			jQuery(".jackbox[data-group]").jackBox("init",{
 			    showInfoByDefault: false,
-			    preloadGraphics: false, 
+			    preloadGraphics: false,
 			    fullscreenScalesContent: true,
 			    autoPlayVideo: false,
 			    flashVideoFirst: false,
@@ -740,7 +723,7 @@
 			    thumbnailHeight: 50,
 			    useThumbTooltips: false,
 			    showPageScrollbar: false,
-			    useKeyboardControls: true 
+			    useKeyboardControls: true
 			});
 		}
 
@@ -748,7 +731,7 @@
 
 		var slider;
 		if($('#price').length){
-			slider = $('#price').slider({ 
+			slider = $('#price').slider({
 			 	orientation: "horizontal",
 				range: true,
 				values: [ 0, 250 ],
@@ -785,7 +768,7 @@
 		// appear animation
 
 	    function animate(){
-	    	
+
 	     $("[data-appear-animation]").each(function() {
 
 	         var self = $(this);
@@ -860,7 +843,7 @@
 					easing:true,
 					lensFadeIn: 500,
 					lensFadeOut: 500
-				}); 
+				});
 
 				button.on("click", function(e){
 				  var ez = $('#zoom_image').data('elevateZoom');
@@ -871,7 +854,7 @@
 			}
 
 		})();
-    
+
 	});
 
 })(jQuery);

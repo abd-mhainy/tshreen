@@ -1,117 +1,10 @@
 <template>
-  <footer class="footer footer_5">
+  <footer v-if="!isLoading" class="footer footer_5">
     <div class="footer_top_part">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="widget widget_gallery" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
-              <!--Gallery-->
-              <div class="photo_gallery side_bar">
-                <h3 class="section_title">Photo & Video</h3>
-                <a href="#" class="button view_button">View All</a>
-                <div class="owl-demo-2">
-                  <div class="item">
-                    <div class="scale_image_container">
-                      <a href="#">
-                        <img src="images/gallery_img_2.jpg" alt="" class="scale_image"></a>
-                      <div class="post_image_buttons">
-                        <a href="#" class="button banner_button entertainment">Entertainment</a>
-                      </div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="f_left">
-                        <div class="event_date">July 01, 2014 5:50 am</div>
-                      </div>
-                      <div class="f_right event_info">
-                        <a href="#">
-                          <i class="fa fa-comments-o d_inline_m m_right_3"></i>
-                          <span>5</span>
-                        </a>
-                        <a href="#">
-                          <i class="fa fa fa-heart-o d_inline_m m_right_3"></i>
-                          <span>73</span>
-                        </a>
-                        <a href="#">
-                          <i class="fa fa-eye d_inline_m m_right_3"></i>
-                          <span>192</span>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="post_text">
-                      <h4 class="post_title">
-                        <a href="#">Nam elit agna endrerit sit</a>
-                      </h4>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="scale_image_container">
-                      <a href="#">
-                        <img src="images/gallery_img_2.jpg" alt="" class="scale_image"></a>
-                      <div class="post_image_buttons">
-                        <a href="#" class="button banner_button travel">Travel</a>
-                      </div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="f_left">
-                        <div class="event_date">July 01, 2014 5:50 am</div>
-                      </div>
-                      <div class="f_right event_info">
-                        <a href="#">
-                          <i class="fa fa-comments-o d_inline_m m_right_3"></i>
-                          <span>5</span>
-                        </a>
-                        <a href="#">
-                          <i class="fa fa fa-heart-o d_inline_m m_right_3"></i>
-                          <span>73</span>
-                        </a>
-                        <a href="#">
-                          <i class="fa fa-eye d_inline_m m_right_3"></i>
-                          <span>192</span>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="post_text">
-                      <h4 class="post_title">
-                        <a href="#">Nam elit agna endrerit sit</a>
-                      </h4>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="scale_image_container">
-                      <a href="#">
-                        <img src="images/gallery_img_2.jpg" alt="" class="scale_image"></a>
-                      <div class="post_image_buttons">
-                        <a href="#" class="button banner_button sport">Sport</a>
-                      </div>
-                    </div>
-                    <div class="clearfix">
-                      <div class="f_left">
-                        <div class="event_date">July 01, 2014 5:50 am</div>
-                      </div>
-                      <div class="f_right event_info">
-                        <a href="#">
-                          <i class="fa fa-comments-o d_inline_m m_right_3"></i>
-                          <span>5</span>
-                        </a>
-                        <a href="#">
-                          <i class="fa fa fa-heart-o d_inline_m m_right_3"></i>
-                          <span>73</span>
-                        </a>
-                        <a href="#">
-                          <i class="fa fa-eye d_inline_m m_right_3"></i>
-                          <span>192</span>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="post_text">
-                      <h4 class="post_title">
-                        <a href="#">Nam elit agna endrerit sit</a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TheFooterSlider :items="responseData.latestNews"></TheFooterSlider>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="widget widget_text" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
@@ -126,122 +19,18 @@
                 <a href="mailto:company@company.com">company@company.com</a>
               </p>
             </div>
-            <div class="widget widget_social_icons clearfix" data-appear-animation="fadeInDown"
-              data-appear-animation-delay="200">
-              <h3 class="widget_title">Stay Connected</h3>
-              <ul>
-                <li class="facebook">
-                  <span class="tooltip">Facebook</span>
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="twitter">
-                  <span class="tooltip">Twitter</span>
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="google_plus">
-                  <span class="tooltip">Google+</span>
-                  <a href="#">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                </li>
-                <li class="rss">
-                  <span class="tooltip">Rss</span>
-                  <a href="#">
-                    <i class="fa fa-rss"></i>
-                  </a>
-                </li>
-                <li class="pinterest">
-                  <span class="tooltip">Pinterest</span>
-                  <a href="#">
-                    <i class="fa fa-pinterest"></i>
-                  </a>
-                </li>
-                <li class="instagram">
-                  <span class="tooltip">Instagram</span>
-                  <a href="#">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li class="linkedin">
-                  <span class="tooltip">LinkedIn</span>
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-                <li class="vimeo">
-                  <span class="tooltip">Vimeo</span>
-                  <a href="#">
-                    <i class="fa fa-vimeo-square"></i>
-                  </a>
-                </li>
-                <li class="youtube">
-                  <span class="tooltip">Youtube</span>
-                  <a href="#">
-                    <i class="fa fa-youtube-play"></i>
-                  </a>
-                </li>
-                <li class="flickr">
-                  <span class="tooltip">Flickr</span>
-                  <a href="#">
-                    <i class="fa fa-flickr"></i>
-                  </a>
-                </li>
-                <li class="envelope">
-                  <span class="tooltip">Contact Us</span>
-                  <a href="#">
-                    <i class="fa fa-envelope-o"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="widget widget_writers" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
-              <h3 class="widget_title">Meat Our Writers</h3>
-              <ul class="writers_list clearfix">
-                <li>
-                  <a href="#">
-                    <div>
-                      <img src="images/writer_1.jpg" alt="">
-                    </div>
-                    <div class="post_text">
-                      <h4>Jessica Priston</h4>
-                      <div class="event_date">Writer</div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div>
-                      <img src="images/writer_2.jpg" alt="">
-                    </div>
-                    <div class="post_text">
-                      <h4>John Franklin</h4>
-                      <div class="event_date">Contributing Editor</div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div>
-                      <img src="images/writer_3.jpg" alt="">
-                    </div>
-                    <div class="post_text">
-                      <h4>Camala Haddon</h4>
-                      <div class="event_date">Writer</div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="t_align_c" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
-              <a href="#">
-                <img src="images/320x100.jpg" height="100" width="320" alt=""></a>
-            </div>
+              <div class="section form_section">
+                  <h3 class="section_title">Newsletter Sign Up</h3>
+                  <div class="form_text">Sign up to our newsletter and get exclusive deals you will not find anywhere else straight to your inbox!</div>
+                  <form id="newsletter">
+                      <button type="submit" class="btn-email button button_grey" data-type="submit"><i class="fa fa-envelope-o"></i></button>
+                      <div class="wrapper">
+                          <input type="email" placeholder="البريد الألكتروني" name="newsletter-email">
+                      </div>
+                      <div class="message_container_subscribe"></div></form>
+              </div>
           </div>
         </div>
       </div>
@@ -250,8 +39,8 @@
     <div class="footer_bottom_part">
       <div class="container clearfix">
         <p>
-          &copy; 2014
-          <span>Revija</span>
+          &copy; 2022
+          <span>Tshreen</span>
           . All Rights Reserved.
         </p>
         <div class="mobile_menu">
@@ -294,3 +83,42 @@
     </div>
   </footer>
 </template>
+
+<script>
+import SmallSlider from '../blocks/SmallSlider.vue';
+import TheFooterSlider from "../blocks/TheFooterSlider.vue";
+
+export default {
+    components: {
+        TheFooterSlider,
+        SmallSlider,
+    },
+
+    data() {
+        return {
+            isLoading: true,
+            responseData: {},
+        }
+    },
+
+    async beforeMount() {
+        const footerData = await window.axios.get('/ar/footer');
+
+        this.isLoading = false;
+        this.responseData = footerData.data;
+    },
+}
+</script>
+
+<style scoped lang="scss">
+@import "resources/sass/sectionTitle";
+
+.section_title, .form_text {
+    color: white;
+}
+
+#newsletter .btn-email {
+    background-color: #fe690d;
+    margin: 0;
+}
+</style>
