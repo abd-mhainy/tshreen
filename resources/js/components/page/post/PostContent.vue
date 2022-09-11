@@ -3,7 +3,10 @@
         <div class="f_left">
             <div class="post_image_buttons">
                 <div class="buttons_container">
-                    <a href="#" class="button banner_button travel">{{ post.categoryName }}</a>
+                    <router-link
+                        :to="`/category/${post.categoryId}/${post.categoryName.replaceAll(' ', '-')}`"
+                        class="button banner_button" :data-category="post.categoryName">{{ post.categoryName }}
+                    </router-link>
                 </div>
             </div>
             <div class="event_date">{{ post.date }}</div>
@@ -31,7 +34,7 @@ export default {
         post() {
             const {
                 coverImage: img,
-                category: { name: categoryName },
+                category: { name: categoryName, id: categoryId },
                 news_lang,
                 created_at: date,
             } = this.config;
@@ -40,6 +43,7 @@ export default {
             return {
                 img,
                 categoryName,
+                categoryId,
                 date,
                 body,
                 title,

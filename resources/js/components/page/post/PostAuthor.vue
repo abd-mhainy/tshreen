@@ -1,95 +1,39 @@
 <template>
     <div class="section">
-        <h3 class="section_title">About Jessica Priston</h3>
+        <h3 class="section_title">عن {{ author.name }}</h3>
         <div class="author_details clearfix">
             <div class="f_left">
                 <div>
-                    <img src="/images/writer_1-2.jpg" alt="">
+                    <img :src="author.image" :alt="author.name">
                 </div>
             </div>
             <div>
-                <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean
-                    auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante
-                    eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at,
-                    neque. Vivamus eget nibh.
-                    Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros.</p>
-                <div class="widget widget_social_icons type_2 type_border clearfix">
-                    <ul>
-                        <li class="website">
-                            <span class="tooltip">Website</span>
-                            <a href="#">
-                                <i class="fa fa-home"></i>
-                            </a>
-                        </li>
-                        <li class="facebook">
-                            <span class="tooltip">Facebook</span>
-                            <a href="#">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="twitter">
-                            <span class="tooltip">Twitter</span>
-                            <a href="#">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="google_plus">
-                            <span class="tooltip">Google+</span>
-                            <a href="#">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </li>
-                        <li class="rss">
-                            <span class="tooltip">Rss</span>
-                            <a href="#">
-                                <i class="fa fa-rss"></i>
-                            </a>
-                        </li>
-                        <li class="pinterest">
-                            <span class="tooltip">Pinterest</span>
-                            <a href="#">
-                                <i class="fa fa-pinterest"></i>
-                            </a>
-                        </li>
-                        <li class="instagram">
-                            <span class="tooltip">Instagram</span>
-                            <a href="#">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="linkedin">
-                            <span class="tooltip">LinkedIn</span>
-                            <a href="#">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                        <li class="vimeo">
-                            <span class="tooltip">Vimeo</span>
-                            <a href="#">
-                                <i class="fa fa-vimeo-square"></i>
-                            </a>
-                        </li>
-                        <li class="youtube">
-                            <span class="tooltip">Youtube</span>
-                            <a href="#">
-                                <i class="fa fa-youtube-play"></i>
-                            </a>
-                        </li>
-                        <li class="flickr">
-                            <span class="tooltip">Flickr</span>
-                            <a href="#">
-                                <i class="fa fa-flickr"></i>
-                            </a>
-                        </li>
-                        <li class="envelope">
-                            <span class="tooltip">Email</span>
-                            <a href="#">
-                                <i class="fa fa-envelope-o"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <p>{{ author.biography }}</p>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+      config: Object,
+    },
+
+    computed: {
+        author() {
+          const { name, image, biography } = this.config.publisher;
+
+          return { name, image: `/images/${image}`, biography };
+        },
+    }
+}
+</script>
+
+<style scoped lang="scss">
+img {
+    width: 165px;
+    height: 165px;
+    aspect-ratio: 1;
+}
+</style>

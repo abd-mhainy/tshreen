@@ -4,7 +4,10 @@
                 <div class="caption_type_1">
                     <div class="caption_inner">
                         <div class="clearfix">
-                            <router-link to="/" class="button banner_button" :class="[item.tag]">{{ item.tagText }}</router-link>
+                            <router-link
+                                :to="item.tagHref" class="button banner_button"
+                                :data-category="item.tagText"
+                            >{{ item.tagText }}</router-link>
                             <div class="event_date">
                                 {{ item.date }}
                             </div>

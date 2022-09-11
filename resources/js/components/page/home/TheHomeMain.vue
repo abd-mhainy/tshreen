@@ -21,6 +21,7 @@ export default {
                     title: categoryName[0].category.name,
                     index,
                     columns: [],
+                    tagHref: `/category/${categoryName[0].catId}/${categoryName[0].category.name.replaceAll(' ', '-')}`,
                 });
 
                 categoryName.forEach((post) => {
@@ -39,7 +40,7 @@ export default {
                         catId,
                         tag: 'sport',
                         caption: title,
-                        href: `post/${catId}/${id}/${title.replaceAll(
+                        href: `/post/${id}/${title.replaceAll(
                             ' ',
                             '-'
                         )}`,

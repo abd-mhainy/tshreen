@@ -1,14 +1,14 @@
 <template>
     <li class="clearfix">
         <div class="scale_image_container">
-            <a :to="item.href"><img :src="item.img" alt="" class="scale_image" /></a>
+            <router-link :to="item.href"><img :src="item.img" alt="" class="scale_image" /></router-link>
         </div>
         <div class="post_text">
-            <a :to="item.href">
+            <router-link :to="item.href">
                 <h4>
                     {{ item.caption }}
                 </h4>
-            </a>
+            </router-link>
             <div class="event_date">
                 {{ item.date }}
             </div>

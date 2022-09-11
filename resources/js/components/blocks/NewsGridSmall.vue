@@ -1,10 +1,9 @@
 <template>
     <div class="section">
-        <div class="tabs variation_2" data-appear-animation="fadeInDown" data-appear-animation-delay="200"
-            :class="[grid.variation]">
+        <div class="tabs variation_2" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
             <!--tabs navigation-->
             <div class="clearfix">
-                <h3 class="section_title">{{ grid.title }}</h3>
+                <h3 class="section_title"><router-link :to="grid.tagHref">{{ grid.title }}</router-link></h3>
                 <!-- Do not remove this part, for some reason it's breaking the page -->
                 <div class="clearfix tabs_conrainer" style="display: none;">
                     <ul class="tabs_nav clearfix">
@@ -42,13 +41,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import 'resources/sass/gridTitle';
+
     [id*="tab-"]:deep() {
         ul {
             display: grid;
             gap: 1rem;
             grid-template-columns: repeat(auto-fit, minmax(274px, 1fr));
             padding: 0 15px;
-    
+
             li {
                 margin-top: 30px !important;
             }

@@ -2,14 +2,14 @@
     <div class="section" data-appear-animation="fadeInDown" data-appear-animation-delay="200">
         <h3 class="section_title">{{  config.title  }}</h3>
         <ul class="writers_list clearfix" ref="owlContainer">
-            <li v-for="martyr in config.martyrs" :key="martyr.name">
-                <a :href="martyr.href">
+            <li v-for="item in config.items" :key="item.name">
+                <a :href="item.href">
                     <div>
-                        <img :src="martyr.img" :alt="martyr.name">
+                        <img :src="item.img" :alt="item.name">
                     </div>
                     <div class="post_text">
-                        <h4>{{  martyr.name  }}</h4>
-                        <div class="event_date">{{  martyr.city  }}</div>
+                        <h4>{{  item.name  }}</h4>
+                        <div class="event_date">{{  item.city  }}</div>
                     </div>
                 </a>
             </li>
@@ -35,7 +35,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "resources/sass/sectionTitle";
+
 ul.writers_list li {
     margin-left: 0;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1;
 }
 </style>
